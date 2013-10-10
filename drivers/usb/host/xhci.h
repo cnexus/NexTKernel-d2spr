@@ -1362,6 +1362,8 @@ struct xhci_bus_state {
 	u32			suspended_ports;
 	u32			port_remote_wakeup;
 	unsigned long		resume_done[USB_MAXCHILDREN];
+	/* which ports have started to resume */
+	unsigned long		resuming_ports;
 };
 
 static inline unsigned int hcd_index(struct usb_hcd *hcd)
@@ -1494,6 +1496,15 @@ struct xhci_hcd {
  * (16.66 ns x 5 = 84ns) ~100ns after writing to the PORTSC register.
  */
 #define XHCI_PORTSC_DELAY	(1 << 10)
+#define XHCI_TRUST_TX_LENGTH	(1 << 10)
+/*
+ * In Synopsis DWC3 controller, XHCI RESET takes some time complete. If PIPE
+ * RESET is not complete by the time USBCMD.RUN bit is set then HC fails to
+ * carry out SS transfers.
+ *
+ * The workaround is to give worst case pipe delay ~350us after resetting HC
+ */
+#define XHCI_RESET_DELAY	(1 << 11)
 	unsigned int		num_active_eps;
 	unsigned int		limit_active_eps;
 	/* There are two roothubs to keep track of bus suspend info for */
