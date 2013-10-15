@@ -759,9 +759,16 @@ void xhci_shutdown(struct usb_hcd *hcd)
 {
 	struct xhci_hcd *xhci = hcd_to_xhci(hcd);
 
+<<<<<<< HEAD
 	if (xhci->quirks & XHCI_SPURIOUS_REBOOT)
 		usb_disable_xhci_ports(to_pci_dev(hcd->self.controller));
 
+||||||| parent of cdef3ed... usb: Revert "xhci: Switch PPT ports to EHCI on shutdown"
+	if (xhci->quirks && XHCI_SPURIOUS_REBOOT)
+		usb_disable_xhci_ports(to_pci_dev(hcd->self.controller));
+
+=======
+>>>>>>> cdef3ed... usb: Revert "xhci: Switch PPT ports to EHCI on shutdown"
 	spin_lock_irq(&xhci->lock);
 	xhci_halt(xhci);
 	spin_unlock_irq(&xhci->lock);
