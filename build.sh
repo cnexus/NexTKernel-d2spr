@@ -1,16 +1,15 @@
 #!/bin/bash
 
 # Kernel Version
-BASE_VER=".NEX"
-VER=".D2SPR.0001"
-VER=$BASE_VER$VER
+VER="-NexT_0001"
 
 export LOCALVERSION=""`echo $VER`
 
 # toolchain
-export CROSS_COMPILE=~/storage/toolchains/linaro/4.9.1/arm-cortex_a15-linux-gnueabihf-linaro_4.9.1-2014.06/bin/arm-eabi-
-#export CROSS_COMPILE=~/storage/toolchains/linaro/4.9.1/arm-cortex_a9-linux-gnueabihf-linaro_4.9.1-2014.06/bin/arm-eabi-
+#export CROSS_COMPILE=~/storage/toolchains/linaro/arm-cortex_a15-linux-gnueabihf-linaro_4.9.1-2014.06/bin/arm-eabi-
+#export CROSS_COMPILE=~/storage/toolchains/linaro/arm-cortex_a9-linux-gnueabihf-linaro_4.9.1-2014.06/bin/arm-eabi-
 #export CROSS_COMPILE=~/storage/toolchains/ndk/4.6/bin/arm-eabi-
+export CROSS_COMPILE=~/storage/toolchains/linaro/arm-cortex_a9-linux-gnueabihf-linaro_4.7.4-2014.04/bin/arm-gnueabi-
 
 # make .config
 make msm8960_m2_defconfig VARIANT_DEFCONFIG=msm8960_m2_spr_defconfig SELINUX_DEFCONFIG=selinux_defconfig
