@@ -9,8 +9,8 @@ export LOCALVERSION=""`echo $VER`
 #export CROSS_COMPILE=~/storage/toolchains/linaro/arm-cortex_a15-linux-gnueabihf-linaro_4.9.1-2014.06/bin/arm-eabi-
 #export CROSS_COMPILE=~/storage/toolchains/linaro/arm-cortex_a9-linux-gnueabihf-linaro_4.9.1-2014.06/bin/arm-eabi-
 #export CROSS_COMPILE=~/storage/toolchains/ndk/4.6/bin/arm-eabi-
-#export CROSS_COMPILE=~/storage/toolchains/linaro/arm-cortex_a9-linux-gnueabihf-linaro_4.7.4-2014.04/bin/arm-gnueabi-
-export CROSS_COMPILE=~/storage/toolchains/linaro/arm-cortex_a15-linux-gnueabihf-linaro_4.7.4-2014.04/bin/arm-gnueabi-
+export CROSS_COMPILE=~/storage/toolchains/linaro/arm-cortex_a9-linux-gnueabihf-linaro_4.7.4-2014.04/bin/arm-gnueabi-
+#export CROSS_COMPILE=~/storage/toolchains/linaro/arm-cortex_a15-linux-gnueabihf-linaro_4.7.4-2014.04/bin/arm-gnueabi-
 
 if [ "$1" == "clean" ]
 then
