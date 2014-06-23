@@ -29,4 +29,5 @@ then
   make -j20 modules
 else
   make -j20 && make modules -j20
+  find . -iname '*.ko' | xargs -n 1 ${CROSS_COMPILE}strip --strip-unneeded
 fi
