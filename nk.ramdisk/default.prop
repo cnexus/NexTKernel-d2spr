@@ -8,3 +8,6 @@ ro.debuggable=1
 persist.service.adb.enable=1
 service.adb.root=1
 persist.sys.usb.config=mtp,adb
+ro.build.selinux=0
+ro.config.knox=0
+ro.config.tima=0
