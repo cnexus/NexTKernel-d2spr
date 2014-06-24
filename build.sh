@@ -23,11 +23,15 @@ env KCONFIG_NOTIMESTAMP=true \
 make msm8960_m2_defconfig VARIANT_DEFCONFIG=msm8960_m2_spr_defconfig SELINUX_DEFCONFIG=selinux_defconfig
 make ARCH=arm SUBARCH=arm VARIANT_DEFCONFIG=msm8960_m2_spr_defconfig SELINUX=selinux_defconfig
 
+JOBS=20
+
 # build the kernel
 if [ "$1" == "modules" ]
 then
-  make -j20 modules
+  make -j$JOBS modules
 else
-  make -j20 && make modules -j20
+  make -j$JOBS && make modules -j$JOBS
   find . -iname '*.ko' | xargs -n 1 ${CROSS_COMPILE}strip --strip-unneeded
+  cd ..
+  ./build_boot.sh
 fi
