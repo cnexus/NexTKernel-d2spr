@@ -1085,7 +1085,7 @@ restart_loop:
 		journal->j_commit_callback(journal, commit_transaction);
 		spin_lock(&journal->j_list_lock);
 		if (commit_transaction->t_dropped) {
-			to_free = 1;
+//			to_free = 1;
 		} else {
 			commit_transaction->t_callbacked = 1;
 		}
