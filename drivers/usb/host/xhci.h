@@ -1528,14 +1528,9 @@ struct xhci_hcd {
  * The workaround is to give worst case pipe delay ~350us after resetting HC
  */
 #define XHCI_RESET_DELAY	(1 << 11)
-<<<<<<< HEAD
 #define XHCI_SPURIOUS_REBOOT	(1 << 13)
 #define XHCI_COMP_MODE_QUIRK	(1 << 14)
 #define XHCI_AVOID_BEI		(1 << 15)
-||||||| parent of cdef3ed... usb: Revert "xhci: Switch PPT ports to EHCI on shutdown"
-#define XHCI_SPURIOUS_REBOOT	(1 << 13)
-=======
->>>>>>> cdef3ed... usb: Revert "xhci: Switch PPT ports to EHCI on shutdown"
 	unsigned int		num_active_eps;
 	unsigned int		limit_active_eps;
 	/* There are two roothubs to keep track of bus suspend info for */
