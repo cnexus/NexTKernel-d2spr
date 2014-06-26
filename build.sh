@@ -30,8 +30,5 @@ if [ "$1" == "modules" ]
 then
   make -j$JOBS modules
 else
-  make -j$JOBS && make modules -j$JOBS
-  find . -iname '*.ko' | xargs -n 1 ${CROSS_COMPILE}strip --strip-unneeded
-  cd ..
-  ./build_boot.sh
+  make -j$JOBS && make modules -j$JOBS && find . -iname '*.ko' | xargs -n 1 ${CROSS_COMPILE}strip --strip-unneeded && cd .. && ./build_boot.sh
 fi
