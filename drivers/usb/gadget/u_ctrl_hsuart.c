@@ -548,6 +548,8 @@ static const struct file_operations ghsuart_ctrl_stats_ops = {
 };
 
 static struct dentry	*ghsuart_ctrl_dent;
+
+#ifdef CONFIG_DEBUG_FS
 static int ghsuart_ctrl_debugfs_init(void)
 {
 	struct dentry	*ghsuart_ctrl_dfile;
@@ -566,6 +568,9 @@ static int ghsuart_ctrl_debugfs_init(void)
 	}
 	return 0;
 }
+#else
+static int ghsuart_ctrl_debugfs_init(void){}
+#endif
 
 static void ghsuart_ctrl_debugfs_exit(void)
 {

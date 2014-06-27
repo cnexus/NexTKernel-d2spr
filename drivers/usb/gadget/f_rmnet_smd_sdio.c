@@ -1753,9 +1753,11 @@ const struct file_operations rmnet_mux_svlte_debug_stats_ops = {
 	.read = rmnet_mux_read_stats,
 	.write = rmnet_mux_reset_stats,
 };
+#endif
 
 struct dentry *dent_rmnet_mux;
 
+#ifdef CONFIG_DEBUG_FS
 static void rmnet_mux_debugfs_init(struct rmnet_mux_dev *dev)
 {
 

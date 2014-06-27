@@ -670,7 +670,7 @@ int diag_function_add(struct usb_configuration *c, const char *name,
 }
 
 
-#if defined(CONFIG_DEBUG_FS)
+#ifdef CONFIG_DEBUG_FS
 static char debug_buffer[PAGE_SIZE];
 
 static ssize_t debug_read_stats(struct file *file, char __user *ubuf,
@@ -728,8 +728,11 @@ static const struct file_operations debug_fdiag_ops = {
 	.read = debug_read_stats,
 	.write = debug_reset_stats,
 };
+#endif
 
 struct dentry *dent_diag;
+
+#ifdef CONFIG_DEBUG_FS
 static void fdiag_debugfs_init(void)
 {
 	dent_diag = debugfs_create_dir("usb_diag", 0);

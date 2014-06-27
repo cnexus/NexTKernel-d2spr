@@ -1267,10 +1267,12 @@ const struct file_operations rmnet_smd_debug_stats_ops = {
 	.read = rmnet_smd_debug_read_stats,
 	.write = rmnet_smd_debug_reset_stats,
 };
+#endif
 
 struct dentry *dent_smd;
 struct dentry *dent_smd_status;
 
+#ifdef CONFIG_DEBUG_FS
 static void rmnet_smd_debugfs_init(struct rmnet_smd_dev *dev)
 {
 

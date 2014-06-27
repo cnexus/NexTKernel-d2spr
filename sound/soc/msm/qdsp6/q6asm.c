@@ -88,7 +88,11 @@ static int in_cont_index;
 static int out_cold_index;
 static char *out_buffer;
 static char *in_buffer;
+#endif
+
 u32 score;
+
+#ifdef CONFIG_DEBUG_FS
 static int audio_output_latency_dbgfs_open(struct inode *inode,
 							struct file *file)
 {
